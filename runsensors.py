@@ -1,8 +1,21 @@
 import picamera
 from time import sleep
+import RPi.GPIO as GPIO
+import Adafruit_DHT
 
 camera = picamera.PiCamera()
 camera.capture('image.jpg')
+
+
+# Get Temp and Humidity
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, DHTpin)
+# Convert from Celius to Farenheit
+TWF = (TW * 9 / 5) + 32
+temp =(str(TWF))
+print temp
+print TWF
 
 # camera.hflip = True
 # camera.vflip = True
