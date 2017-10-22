@@ -12,9 +12,10 @@ camera.capture('image.jpg')
 while True:
 
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
-
+    TWF = ({0:0.1f} * 9 / 5) + 32
+    temp =(str(TWF))
     print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
-
+    print temp
 # camera.hflip = True
 # camera.vflip = True
 #
