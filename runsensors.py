@@ -5,14 +5,15 @@ from time import sleep
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 
+camera = picamera.PiCamera()
+camera.capture('image.jpg')
 
 while True:
 
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
     print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
-    camera = picamera.PiCamera()
-    camera.capture('image.jpg')
+
 # camera.hflip = True
 # camera.vflip = True
 #
