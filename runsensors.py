@@ -6,6 +6,8 @@ import Adafruit_DHT
 camera = picamera.PiCamera()
 camera.capture('image.jpg')
 
+RCpin = 24
+DHTpin = 23
 
 # Get Temp and Humidity
 GPIO.setmode(GPIO.BCM)
