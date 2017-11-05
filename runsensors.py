@@ -11,6 +11,7 @@ camera.capture('image.jpg')
 delaytime=10;
 key='UT38DSROKCUUHSOX'
 DEBUG = 1
+TempC = 10
 
 
 while True:
