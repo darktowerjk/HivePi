@@ -9,7 +9,7 @@ import httplib, urllib
 camera = picamera.PiCamera()
 camera.capture('image.jpg')
 delaytime=10;
-key='P180UL4TF4I76AB2'
+key='UT38DSROKCUUHSOX'
 DEBUG = 1
 
 
@@ -18,8 +18,15 @@ while True:
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
     tempC= {0:0.1f};
     print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
-    TWF = (tempC * 9 / 5) + 32
-    print 'F: ' + TWF;
+    params = urllib.urlencode({'field1': TempC, 'key': key})
+    headers = {"Content-typZZe": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+    # store data in ThingSpeak
+    conn = httplib.HTTPConnection("api.thingspeak.com:80")
+    conn.request("POST", "/update", params, headers)
+    response = conn.getresponse()
+    print response.status, response.reason
+    data = response.read()
+    conn.close()
 
     time.sleep(delaytime);
 if __name__ == '__main__':
