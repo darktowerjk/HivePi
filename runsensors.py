@@ -28,7 +28,7 @@ except ImportError:
     flags = None
 
 SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
-CLIENT_SECRET_FILE = 'client_secret.json'
+CLIENT_SECRET_FILE = r'/home/pi/sensors/HivePi/client_secret.json'
 APPLICATION_NAME = 'DriveAPI'
 
 def get_credentials():
