@@ -9,7 +9,9 @@ import Adafruit_DHT
 import httplib, urllib
 import httplib2
 import os
+import google.auth
 import google.auth.credentials
+import google_auth_httplib2
 
 from apiclient import discovery
 from oauth2client import client
