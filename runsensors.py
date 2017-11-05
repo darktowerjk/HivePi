@@ -42,6 +42,7 @@ def get_credentials():
                                    'gDrive')
 
     store = Storage(credential_path)
+    print(credential_path)
     credentials = store.get()
     if not credentials or credentials.invalid:
         print('HERE')
