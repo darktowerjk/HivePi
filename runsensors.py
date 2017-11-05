@@ -62,14 +62,14 @@ def get_credentials():
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
-    #print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
+    print( 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity))
     params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'key': key})
     headers = {"Content-typZZe": "application/x-www-form-urlencoded", "Accept": "text/plain"}
     # store data in ThingSpeak
     conn = httplib.HTTPConnection("api.thingspeak.com:80")
     conn.request("POST", "/update", params, headers)
     response = conn.getresponse()
-    print response.status, response.reason
+    print(response.status, response.reason)
     data = response.read()
     conn.close()
 
