@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import print_function
 import sys
 import picamera
 import time
@@ -6,7 +7,6 @@ from time import sleep
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 import httplib, urllib
-from __future__ import print_function
 import httplib2
 import os
 
