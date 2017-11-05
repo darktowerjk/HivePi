@@ -39,11 +39,12 @@ def get_credentials():
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
-                                   'gDrive/client_secret.json')
+                                   'gDrive')
 
     store = Storage(credential_path)
     credentials = store.get()
     if not credentials or credentials.invalid:
+        print('HERE'
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
         if flags:
@@ -66,10 +67,6 @@ while True:
     print(response.status, response.reason)
     data = response.read()
     conn.close()
-
-    #Creates a Google Drive API service object and outputs the names and IDs
-    #for up to 10 files.
-    #"""
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('drive', 'v3', http=http)
