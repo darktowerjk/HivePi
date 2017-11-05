@@ -4,15 +4,26 @@ import picamera
 from time import sleep
 import RPi.GPIO as GPIO
 import Adafruit_DHT
+import httplib, urllib
 
 camera = picamera.PiCamera()
 camera.capture('image.jpg')
+delaytime=10;
+key='P180UL4TF4I76AB2'
+DEBUG = 1
+
 
 while True:
 
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
-
+    tempC= {0:0.1f};
     print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
+    TWF = (tempC * 9 / 5) + 32
+    print 'F: ' + TWF;
+
+    time.sleep(delaytime);
+if __name__ == '__main__':
+    main()
 
 # camera.hflip = True
 # camera.vflip = True
