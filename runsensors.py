@@ -49,10 +49,13 @@ def get_credentials():
         print('HERE')
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
+        print('HERE2')
         if flags:
             credentials = tools.run_flow(flow, store, flags)
+            print('HERE3')
         else: # Needed only for compatibility with Python 2.6
             credentials = tools.run(flow, store)
+            print('HERE4')
         print('Storing credentials to ' + credential_path)
     return credentials
 
