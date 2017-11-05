@@ -73,9 +73,9 @@ while True:
     data = response.read()
     conn.close()
 
-    Creates a Google Drive API service object and outputs the names and IDs
-    for up to 10 files.
-    """
+    #Creates a Google Drive API service object and outputs the names and IDs
+    #for up to 10 files.
+    #"""
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('drive', 'v3', http=http)
