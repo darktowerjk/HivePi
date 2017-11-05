@@ -29,7 +29,7 @@ except ImportError:
 
 SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
 CLIENT_SECRET_FILE = r'/home/pi/sensors/HivePi/client_secret.json'
-APPLICATION_NAME = 'DriveAPI'
+APPLICATION_NAME = 'doolinhomeiot'
 
 def get_credentials():
 
