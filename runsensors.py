@@ -16,8 +16,9 @@ DEBUG = 1
 while True:
 
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
-    tempC= {0:0.1f};
+    #tempC= {0:0.1f};
     print 'Temp: {0:0.1f} C  Humidity: {1:0.1f} %'.format(temperature, humidity)
+    print 'before';
     params = urllib.urlencode({'field1': TempC, 'key': key})
     headers = {"Content-typZZe": "application/x-www-form-urlencoded", "Accept": "text/plain"}
     # store data in ThingSpeak
@@ -27,7 +28,7 @@ while True:
     print response.status, response.reason
     data = response.read()
     conn.close()
-
+    print 'after';
     time.sleep(delaytime);
 if __name__ == '__main__':
     main()
